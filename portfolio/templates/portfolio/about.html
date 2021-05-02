@@ -1,0 +1,28 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+{%for detail in personal_details%}
+<section >
+    <div class="container bg-white p-4" style=" font-weight:bold; font-family:'Courier New', Courier, monospace;" class=" article-content p-3 m-1 text-warning">
+        <h2 style="color:white; font-weight: bolder;" class="bg-dark text-center" >
+            About Me
+        </h2  >
+        <div >
+            <h6>DETAILS</h6>
+            Name :  {{detail.name}}
+            <br>
+            Surname :  {{detail.Surname }}
+            <br>
+            
+            <br>
+            Location :  {{detail.location}}
+            <br>
+            Linkedin :  <a href="{{detail.Linkedin}}">profile</a>
+            <br>
+            Languages : English, Sotho,Turkish, Zulu
+
+        </div>
+    </div>
+</section>
+{%endfor%}
+{% endblock content %}
