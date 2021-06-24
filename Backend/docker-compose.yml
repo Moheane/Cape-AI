@@ -1,0 +1,19 @@
+version: '3'
+
+services: 
+    django_gunicorn:
+        build:
+            context:
+        ports: 
+        - "8000:8000"
+        volumes: 
+        - ./django_gunicorn:/django_gunicorn
+        env_file: 
+            - .env
+        command: sh -c "python manage.py runserver 0.0.0.0:8000"
+
+    gnix:
+        build: ./nginx
+        volumes: 
+            - "80:80"
+        depends_on: django_gunicorn
